@@ -1,0 +1,67 @@
+.mynamecard {
+    display: flex;
+    margin-top: 74px;
+    margin-bottom: 64px;
+}
+.mynamecard img {
+    border-radius: 36px;
+    box-shadow: -3px 7px 30px #00000077;
+}
+.mynamecard .tituls {
+    margin-left: 53px;
+}
+
+.myname {
+    font-size: 81px;
+    margin-bottom: 4px;
+    cursor: default; 
+}
+@media (max-aspect-ratio: 1/1) {
+    .myname {
+        font-size: 49px;
+    }
+
+    /* cosmetics */
+    .mynamecard {
+        margin-top: 44px;
+
+        /* fills width in mobile */
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        align-items: center;
+
+        padding: 0 19px;
+        flex-direction: column;
+    }
+    .mynamecard .tituls {
+        margin-left: 0;
+        margin-top: 23px;
+        align-items: center;
+    }
+    .mynamecard .titul {
+        opacity: 77%;
+    }
+
+}
+.myname::selection {
+    background-color: #83A598;
+}
+
+#pic {
+    -webkit-user-select: none;
+    user-drag: none;
+    -webkit-user-drag: none;
+    outline-offset: 14px;
+    transition: 33ms;
+}
+
+/** todo: wrap pic in a div and give div the shadow
+ * so scaling the pic won't scale the shadow */
+
+#pic:active {
+    transition: 133ms;
+    /*outline: 6.4px solid #8EC07C;*/
+    scale: .97;
+}
+

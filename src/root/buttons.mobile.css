@@ -2,11 +2,6 @@
     :root {
         --btn-side: 81px;
     }
-    .centered {
-        /*overflow: hidden;*/
-        /*border: 4px solid lime;*/
-    }
-    .side { border: 2px solid red !important; }
     .side {
         position: fixed;
         left: 0;
@@ -20,24 +15,26 @@
         padding-top: 0px;
         padding-bottom: 5px;
         box-shadow: 0 -13px 13px #1d2021;
+        background-color: var(--bg);
     }
     .sideButtons {
         width: unset;
         height: unset;
-        border: 2px solid green;
         flex-direction: row;
+        min-width: 0;
+        max-width: 100%;
+    }
 
+    .sideBtn { 
+        height: calc(.75 * var(--btn-side)); 
+        min-height: calc(.75 * var(--btn-side)); ;
     }
-    .side > :first-child { 
-        margin-top: unset;
-        margin-left: auto;
-    }
-    .side > :last-child { 
-        margin-bottom: unset;
-        margin-right: auto;
-    }
+
+    .side > :first-child { margin-left: auto; }
+    .side > :last-child { margin-bottom: unset; margin-right: auto; }
+
     /** scroller **/
     .sideButtons::-webkit-scrollbar-thumb { border-width: 0; }
     .sideButtons::-webkit-scrollbar { height: 7px; }
-
 }
+

@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>va9iff</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <!--<link rel="stylesheet" href="./style.css">-->
+    <link rel="stylesheet" href="./theme.css">
+    <link rel="stylesheet" href="./core.css">
+    <link rel="stylesheet" href="./core.mobile.css">
+    <link rel="stylesheet" href="./buttons.css">
+    <link rel="stylesheet" href="./buttons.mobile.css">
+    <link rel="stylesheet" href="./cosmetics.css">
+    <link rel="stylesheet" href="./profile.css">
+    <link rel="stylesheet" href="./profile.mobile.css">
 
     <link rel="stylesheet" href="./tools/imager.css">
 
@@ -18,15 +26,17 @@
   <body>
     <div class="centered">
       <div class="side">
-        <button class="sideBtn active">
-          <img src="./assets/card.svg" alt="About Me" title="About me">
-        </button>
-        <button class="sideBtn">
-          <img src="./assets/cert.svg" alt="Education" title="Education">
-        </button>
-        <button class="sideBtn">
-          <img src="./assets/portfel.svg" alt="Projects" title="Projects">
-        </button>
+        <div class="sideButtons">
+          <button class="sideBtn active">
+            <img src="./assets/card.svg" alt="About Me" title="About me">
+          </button>
+          <button class="sideBtn">
+            <img src="./assets/cert.svg" alt="Education" title="Education">
+          </button>
+          <button class="sideBtn">
+            <img src="./assets/portfel.svg" alt="Projects" title="Projects">
+          </button>
+        </div>
       </div>
       <div class="content">
         <h1 class="title">Profile</h1>
@@ -34,7 +44,7 @@
           Proficient in web technologies. Cyber-Security specialist. JS engineer. Muslim. Open
           source contributor. Check out my <a class="text hoverpop" href="vaq.fi">Portfolio</a> to see some of my projects.
         </p>
-        <div class="g row mynamecard">
+        <div class="g mynamecard">
           <img id="pic" src="./assets/blurry.jpg" width="284" height="284" alt="Me" title="Me">
           <div class="col tituls f4">
             <span class="myname">Vaqif VALIYEV</span>
@@ -56,6 +66,6 @@
         }
       })
     </script>
-    <script src="./app.js" type="module"></script>
+    <!--<script src="./app.js" type="module"></script>-->
   </body>
 </html>
