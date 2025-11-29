@@ -7,7 +7,7 @@
     cursor: default;
 }
 
-.title::selectin {
+.title::selection {
     background-color: #8EC07C;
     color: #1D2021;
 }
