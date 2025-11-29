@@ -1,0 +1,42 @@
+ .sideBtn.highlight {
+     position: absolute;
+     transition: 313ms cubic-bezier(.33, 1, 0, 1);
+     pointer-events: none;
+     top: calc(0 * (var(--btn-side) + var(--btn-gap)));
+ }
+
+.sideButtons.a0  .sideBtn.highlight {
+     top: calc(0 * (var(--btn-side) + var(--btn-gap)));
+ }
+.sideButtons.a1  .sideBtn.highlight {
+     top: calc(1 * (var(--btn-side) + var(--btn-gap)));
+ }
+.sideButtons.a2  .sideBtn.highlight {
+     top: calc(2 * (var(--btn-side) + var(--btn-gap)));
+ }
+.sideButtons.a3  .sideBtn.highlight {
+     top: calc(3 * (var(--btn-side) + var(--btn-gap)));
+ }
+
+ @media (max-aspect-ratio: 1/1) {
+     .sideButtons.a0  .sideBtn.highlight,
+     .sideButtons.a1  .sideBtn.highlight,
+     .sideButtons.a2  .sideBtn.highlight,
+     .sideButtons.a3  .sideBtn.highlight {
+         top: 0px !important
+     }
+     .sideButtons.a0  .sideBtn.highlight {
+         left: calc(0 * (var(--btn-side) + var(--btn-gap)));
+     }
+     .sideButtons.a1  .sideBtn.highlight {
+         left: calc(1 * (var(--btn-side) + var(--btn-gap)));
+     }
+     .sideButtons.a2  .sideBtn.highlight {
+         left: calc(2 * (var(--btn-side) + var(--btn-gap)));
+     }
+     .sideButtons.a3  .sideBtn.highlight {
+         left: calc(3 * (var(--btn-side) + var(--btn-gap)));
+     }
+
+}
+

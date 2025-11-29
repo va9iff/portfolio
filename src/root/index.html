@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="./style/page/profile.css">
     <link rel="stylesheet" href="./style/draft.css">
 
+    <link rel="stylesheet" href="./style/core/buttons-anim.css">
+
     <link rel="stylesheet" href="./tools/imager.css">
 
     <!--fonts-->
@@ -27,13 +29,14 @@
     <div class="centered">
       <div class="side">
         <div class="sideButtons">
-          <button class="sideBtn active">
+          <div class="sideBtn active highlight"></div>
+          <button class="sideBtn tab">
             <img src="./assets/card.svg" alt="About Me" title="About me">
           </button>
-          <button class="sideBtn">
+          <button class="sideBtn tab">
             <img src="./assets/cert.svg" alt="Education" title="Education">
           </button>
-          <button class="sideBtn">
+          <button class="sideBtn tab">
             <img src="./assets/portfel.svg" alt="Projects" title="Projects">
           </button>
         </div>
@@ -57,16 +60,7 @@
         <h1 class="title">Jajaka</h1>
       </div>
     </div>
-    <script>
-      document.querySelectorAll(".sideBtn").forEach(btn => {
-        btn.onclick = () => {
-          document.querySelectorAll(".sideBtn").forEach(btn => {
-            btn.classList.remove("active")
-          })
-          btn.classList.add("active")
-        }
-      })
-    </script>
+    <script type="module" src="./buttons.js"> </script>
     <script src="./app.js" type="module"></script>
   </body>
 </html>

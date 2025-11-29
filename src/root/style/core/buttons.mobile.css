@@ -23,10 +23,12 @@
         flex-direction: row;
         min-width: 0;
         max-width: 100%;
+        padding: 0;
     }
 
     .sideBtn { 
         height: calc(.75 * var(--btn-side)); 
+        width: var(--btn-side);
         min-height: calc(.75 * var(--btn-side)); ;
     }
 

@@ -13,8 +13,9 @@
 
 .sideButtons {
     display: flex;
+    position: relative;
     flex-direction: column;
-    padding: 5px;
+    padding: 0 5px;
     overflow: auto;
     gap: var(--btn-gap);
 }
