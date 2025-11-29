@@ -1,26 +1,25 @@
-//import { imager } from "./tools/imager.js";
-//
-//
-//imager(document.querySelector("#pic"))
+// @ts-check
 
 import { tags, set, on, style } from "./hu.js"
 
 const { div, img } = tags
-
 const scale = .4
 
-const w = 800 * scale
-const h = 600 * scale
-
-
-const bg = '#1d2021'
+const bgDarker = '#161818'
 
 const shadow = 12
 
-/** @param {
-    ({ src: string })[]
-} slides */
-export function cards(slides) {
+/** @param {{
+    slides: ({ src: string })[],
+    h?: number,
+    w?: number,
+    bg?: string
+}} arg */
+export function cards(arg) {
+    const { slides } = arg
+    const bg = arg.bg ?? '#1d2021'
+    const w = arg.w ?? 800
+    const h = arg.h ?? 600
     const { length } = slides
     const stackWidth = .2
     const images = 
@@ -34,22 +33,20 @@ export function cards(slides) {
                     position: 'absolute',
                     transition: '800ms cubic-bezier(.33, 1, 0, 1)',
                     objectFit: 'cover',
-                    top: '0px',
                     left: shadow + i * (stackWidth / length) * w + 'px',
                     top: `${shadow}px`,
                     width: w + 'px',
                     height: h + 'px',
-                    boxShadow: i > 0 && `-13px 0 ${shadow}px #1119`,
+                    boxShadow: i > 0 ? `-13px 0 ${shadow}px #1119` : "",
                     borderRadius: `${64 * scale}px`,
                 })
             )
         )
 
-    const fadeWidth = 13
     const fadeBlur = 10
     const borderFade = div(
         style({
-            zIndex: 4,
+            zIndex: '4',
             boxShadow: `-${fadeBlur}px 0 ${fadeBlur}px ${bg}`,
             width: `${100}%`,
             position: 'absolute',
@@ -68,7 +65,7 @@ export function cards(slides) {
             width: shadow * 2 + w * (1 + stackWidth) + 'px',
             height: shadow * 2 + h + 'px',
             overflow: 'hidden',
-            borderRadius: `${23 * scale}px`,
+            borderRadius: `4%`,
         }),
         on({
             mousemove(e) {
@@ -92,32 +89,52 @@ export function cards(slides) {
     return container
 }
 
-document.querySelector(".content").appendChild(cards([
-    {
-        src: 'assets/glitchy.png',
-    },
-    {
-        src: 'assets/glitchy.png',
-    },
-    {
-        src: 'assets/glitchy.png',
-    },
-    {
-        src: 'assets/glitchy.png',
-    },
-    {
-        src: 'assets/glitchy.png',
-    },
-    {
-        src: 'assets/glitchy.png',
-    },
-    {
-        src: 'assets/glitchy.png',
-    },
-    {
-        src: 'assets/glitchy.png',
-    },
-    {
-        src: 'assets/glitchy.png',
-    },
-]))
+const c = document.querySelector(".content")
+if (!c) throw new Error("jajaka")
+
+c.appendChild(
+    div(
+        style({
+            background: '#161818',
+            //boxShadow: "0 0 15px #1119 inset",
+            display: 'flex',
+            borderRadius: '17px',
+            flexDirection: 'columnt',
+            padding: '10px',
+        }),
+        cards({
+            w: 800 * .4,
+            h: 600 * .4,
+            bg: "#161818",
+            slides: [
+                {
+                    src: 'assets/glitchy.png',
+                },
+                {
+                    src: 'assets/glitchy.png',
+                },
+                {
+                    src: 'assets/glitchy.png',
+                },
+                {
+                    src: 'assets/glitchy.png',
+                },
+                {
+                    src: 'assets/glitchy.png',
+                },
+                {
+                    src: 'assets/glitchy.png',
+                },
+                {
+                    src: 'assets/glitchy.png',
+                },
+                {
+                    src: 'assets/glitchy.png',
+                },
+                {
+                    src: 'assets/glitchy.png',
+                },
+            ]
+        })
+    )
+)
