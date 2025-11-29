@@ -65,6 +65,24 @@ export function cards(arg) {
 
     const fadeBlur = 10
 
+    let last = 0
+
+    /** @param {number} x */
+    const listener = x => {
+        const bounds = container.getBoundingClientRect()
+        const progPre = (x - bounds.left) / (bounds.width / images.length)
+        const prog = progPre < 0 ? 0 : progPre
+        const activeId = Math.floor(prog)
+        if (last === activeId) return // to optimize
+        last = activeId
+        for (let i = 0; i < images.length; i++) {
+            const image = images[i]
+            if (i > activeId) image.style.translate = `${100 - extendedPercent}% 0`
+            else image.style.translate = '0% 0'
+        }
+
+    }
+
     const container = div(
         style({
             width: arg.width,
@@ -79,18 +97,12 @@ export function cards(arg) {
         }),
         on({
             mousemove(e) {
-                const bounds = container.getBoundingClientRect()
-                const progPre = (e.clientX - bounds.left) / (bounds.width / images.length)
-                const prog = progPre < 0 ? 0 : progPre
-                const activeId = Math.floor(prog)
-                for (let i = 0; i < images.length; i++) {
-                    const image = images[i]
-                    if (i > activeId) image.style.translate = `${100 - extendedPercent}% 0`
-                    else image.style.translate = '0% 0'
-                }
+                const x = e.clientX
+                listener(x)
             },
-            touchstart(e) {
-
+            touchmove(e) {
+                const x = e.touches[0].clientX
+                listener(x)
             }
         }),
     )
