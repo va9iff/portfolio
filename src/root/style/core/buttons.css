@@ -37,6 +37,8 @@
         0 0 0 2px #EFD78900 inset,
         0 0 0 #00000000 inset
         ;
+    -webkit-tap-highlight-color: transparent;
+
 }
 .sideBtn img {
     width: 77%;
