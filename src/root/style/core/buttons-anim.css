@@ -58,6 +58,7 @@
          ;
          box-shadow: 0 0 0 2px #EFD78900 inset;
          scale: .6 .4;
+         /*scale: .4;*/ /* idea idk */
      }
 
      .flyingToLeft .sideBtn.highlight{

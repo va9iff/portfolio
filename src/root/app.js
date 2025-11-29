@@ -9,6 +9,10 @@ const bgDarker = '#161818'
 
 const shadow = 12
 
+// TODO(dumb): for dumbs, touchstart will swipe 1 left or 1 right.
+// then when they touchmove, it'll work as intended anyways.
+// I just don't want it to feel broken for clicks.
+
 /** @param {{
     slides: ({ src: string })[],
     // image elements aspect ratio
@@ -65,7 +69,7 @@ export function cards(arg) {
 
     const fadeBlur = 10
 
-    let last = 0
+    let last = -1
 
     /** @param {number} x */
     const listener = x => {
@@ -99,6 +103,17 @@ export function cards(arg) {
             mousemove(e) {
                 const x = e.clientX
                 listener(x)
+            },
+            touchstart(e) {
+                // for now, let's just reset.
+                // its visuals looks off when you hold and move with touch but 
+                // the final goal will move just 1 so it'll be good
+                // check TODO(dumb)
+                listener(1) 
+            },
+            touchend(e) {
+                // prevent firing touchmove when it's just a tap
+                e.preventDefault() 
             },
             touchmove(e) {
                 const x = e.touches[0].clientX
