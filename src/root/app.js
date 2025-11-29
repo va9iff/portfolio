@@ -11,61 +11,71 @@ const shadow = 12
 
 /** @param {{
     slides: ({ src: string })[],
-    h?: number,
-    w?: number,
-    bg?: string
+    // image elements aspect ratio
+    aspect: number,
+    bg: string,
+    width: string,
 }} arg */
 export function cards(arg) {
     const { slides } = arg
-    const bg = arg.bg ?? '#1d2021'
-    const w = arg.w ?? 800
-    const h = arg.h ?? 600
     const { length } = slides
-    const stackWidth = .2
+
+    const extendedPercent = 6.4
+    const stackPercent = 20
+
+    const slideWidthPercent = 100 - stackPercent - extendedPercent
+
+    const xk = slideWidthPercent / 100
+    const yk = arg.aspect
+
+    const wrapper = div(
+        style({
+            position: 'relative',
+            width: "100%",
+            aspectRatio: arg.aspect + "",
+            // when you enable that, you'll see that the bottom part is cropped.
+            // that's intentional. lets say you have an aspect of 1/1
+            // I will have some percent of X for shuffle parts. (stacking makes wider)
+            // but I use percents in img elements, so the parent have to be 1/1 too.
+            // but then I'll need to reduce the width of images to fit all to that yellow.
+            // which will end up yellow's bottom being empty. 
+            // so I calculate a new aspect that will crop the empty part in red one.
+            //boxShadow: '0 0 0 4px yellow inset',
+        })
+    )
     const images = 
         slides.map((slide, i) => 
             img(
                 set({
                     src: slide.src,
-                    className: 'card-slide'
                 }),
                 style({ 
                     position: 'absolute',
                     transition: '800ms cubic-bezier(.33, 1, 0, 1)',
                     objectFit: 'cover',
-                    left: shadow + i * (stackWidth / length) * w + 'px',
-                    top: `${shadow}px`,
-                    width: w + 'px',
-                    height: h + 'px',
+                    top: '0',
+                    left: `${i * (stackPercent / (length-1))}%`,
+                    width: `${slideWidthPercent}%`,
+                    height: `${slideWidthPercent}%`,
                     boxShadow: i > 0 ? `-13px 0 ${shadow}px #1119` : "",
-                    borderRadius: `${64 * scale}px`,
+                    borderRadius: `${25}px`,
                 })
             )
         )
 
     const fadeBlur = 10
-    const borderFade = div(
-        style({
-            zIndex: '4',
-            boxShadow: `-${fadeBlur}px 0 ${fadeBlur}px ${bg}`,
-            width: `${100}%`,
-            position: 'absolute',
-            left: '100%',
-            height: '100%',
-        })
-    )
 
     const container = div(
-        borderFade,
-        set({
-            className: 'cards'
-        }),
         style({
+            width: arg.width,
+            //resize: 'horizontal',
             position: 'relative',
-            width: shadow * 2 + w * (1 + stackWidth) + 'px',
-            height: shadow * 2 + h + 'px',
             overflow: 'hidden',
             borderRadius: `4%`,
+            // new ratio which will hold stacked img elements.
+            // the aspect ratio you give is for images, not container.
+            aspectRatio: yk/xk+'',
+            //border: '2px solid red',
         }),
         on({
             mousemove(e) {
@@ -75,7 +85,7 @@ export function cards(arg) {
                 const activeId = Math.floor(prog)
                 for (let i = 0; i < images.length; i++) {
                     const image = images[i]
-                    if (i > activeId) image.style.translate = '90% 0'
+                    if (i > activeId) image.style.translate = `${100 - extendedPercent}% 0`
                     else image.style.translate = '0% 0'
                 }
             },
@@ -84,7 +94,8 @@ export function cards(arg) {
             }
         }),
     )
-    for (const image of images) container.appendChild(image)
+    for (const image of images) wrapper.appendChild(image)
+    container.appendChild(wrapper)
 
     return container
 }
@@ -100,18 +111,18 @@ c.appendChild(
             display: 'flex',
             borderRadius: '17px',
             flexDirection: 'columnt',
-            padding: '10px',
+            padding: '23px',
         }),
         cards({
-            w: 800 * .4,
-            h: 600 * .4,
             bg: "#161818",
+            width: 400 + 'px',
+            aspect: 800 / 600,
             slides: [
                 {
                     src: 'assets/glitchy.png',
                 },
                 {
-                    src: 'assets/glitchy.png',
+                    src: 'assets/blurry.jpg',
                 },
                 {
                     src: 'assets/glitchy.png',
