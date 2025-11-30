@@ -54,6 +54,7 @@ export function cards(arg) {
                     src: slide.src,
                 }),
                 style({ 
+                    backgroundColor: "#344",
                     position: 'absolute',
                     transition: '800ms cubic-bezier(.33, 1, 0, 1)',
                     objectFit: 'cover',
