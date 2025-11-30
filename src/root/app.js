@@ -32,6 +32,8 @@ export function cards(arg) {
     const xk = slideWidthPercent / 100
     const yk = arg.aspect
 
+    // TODO mouse clicking opens active image bigger to see.
+    // or maybe even create backdrop elements with bigger carousels for clicks.
     const wrapper = div(
         style({
             position: 'relative',
@@ -53,6 +55,12 @@ export function cards(arg) {
                 set({
                     src: slide.src,
                 }),
+                style({
+                    // @ts-expect-error
+                    '-webkit-user-select': 'none',
+                    '-webkit-user-drag': 'none',
+                    pointerEvents: 'none'
+                }),
                 style({ 
                     backgroundColor: "#344",
                     position: 'absolute',
@@ -68,6 +76,7 @@ export function cards(arg) {
             )
         )
 
+    /** TODO crop with fade on right most */
     const fadeBlur = 10
 
     let last = -1
@@ -133,6 +142,9 @@ if (!c) throw new Error("jajaka")
 
 c.appendChild(
     div(
+        set({
+            className: "g"
+        }),
         style({
             background: '#161818',
             //boxShadow: "0 0 15px #1119 inset",

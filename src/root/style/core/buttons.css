@@ -15,7 +15,7 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    padding: 0 5px;
+    padding: 0;
     overflow: auto;
     gap: var(--btn-gap);
 }
@@ -43,6 +43,7 @@
 .sideBtn img {
     width: 77%;
     height: 77%;
+    pointer-events: none;
 }
 
 .sideBtn.active {

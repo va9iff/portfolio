@@ -1,5 +1,7 @@
  .sideBtn.highlight {
      position: absolute;
+     left: 0;
+     top: 0;
      background-color: transparent;
      transition: 
          box-shadow 290ms,
@@ -25,6 +27,7 @@
 .sideButtons.a3  .sideBtn.highlight {
      top: calc(3 * (var(--btn-side) + var(--btn-gap)));
  }
+
  .highlight::before {
      content: '';
      width: 100%;
@@ -36,34 +39,50 @@
      transition: opacity 444ms;
  }
 
+ .sideButtons:has(.sideBtn:active) .sideBtn.highlight::before {
+     /*background-color: #EFD78964;*/
+     opacity: .2
+ }
+
+ .flyingToRight .sideBtn.highlight,
+ .flyingToLeft .sideBtn.highlight {
+     background-color: #EFD789;
+     transition: 
+     box-shadow 10ms,
+     left 513ms cubic-bezier(.2, 1, 0, 1),
+     top 513ms cubic-bezier(.2, 1, 0, 1),
+     scale 100ms
+     ;
+     box-shadow: 0 0 0 2px #EFD78900 inset;
+     scale: .6 .4;
+     /*scale: .4;*/ /* idea idk */
+ }
+ .flyingToLeft .sideBtn.highlight{
+     border-radius: 50% 50% 30% 30%;
+ }
+ .flyingToRight .sideBtn.highlight{
+     border-radius: 30% 30% 50% 50%;
+ }
+
+ .flyingToRight .highlight::before,
+ .flyingToLeft .highlight::before{
+     opacity: 1;
+     transition:
+     opacity 100ms;
+ }
+
+
+
  @media (max-aspect-ratio: 1/1) {
-     .flyingToRight {
-
-     }
-     .flyingToRight .highlight::before,
-     .flyingToLeft .highlight::before{
-         opacity: 1;
-         transition:
-             opacity 100ms;
-     }
-
      .flyingToRight .sideBtn.highlight,
      .flyingToLeft .sideBtn.highlight {
          transform-origin: top;
-         background-color: #EFD789;
-         transition: 
-             box-shadow 10ms,
-             left 513ms cubic-bezier(.2, 1, 0, 1),
-             scale 100ms
-         ;
-         box-shadow: 0 0 0 2px #EFD78900 inset;
-         scale: .6 .4;
-         /*scale: .4;*/ /* idea idk */
      }
 
      .flyingToLeft .sideBtn.highlight{
          border-radius: 50% 30% 30% 50%;
      }
+
      .flyingToRight .sideBtn.highlight{
          border-radius: 30% 50% 50% 30%;
      }
