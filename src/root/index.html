@@ -26,22 +26,27 @@
 
   </head>
   <body>
+   <!-- we can replace this whole element to have something that is fullscreen if we wanted
+   and then just remove everything in body and put it back to recover to this layout -->
     <div class="centered">
       <div class="side">
         <div class="sideButtons">
           <div class="sideBtn active highlight"></div>
-          <button class="sideBtn tab">
+          <button data-btn-id="profile" class="sideBtn tab">
             <img src="./assets/card.svg" alt="About Me" title="About me">
           </button>
-          <button class="sideBtn tab">
+          <button data-btn-id="certificates" class="sideBtn tab">
             <img src="./assets/cert.svg" alt="Education" title="Education">
           </button>
-          <button class="sideBtn tab">
+          <button data-btn-id="portfolio" class="sideBtn tab">
             <img src="./assets/portfel.svg" alt="Projects" title="Projects">
           </button>
         </div>
       </div>
       <div class="content">
+        <div data-page-id="profile" class="initialPage">
+          <h1>page</h1>
+
         <h1 class="title">Profile</h1>
         <p>
           Proficient in web technologies. Cyber-Security specialist. JS engineer. Muslim. Open
@@ -57,9 +62,10 @@
           </div>
         </div>
         <h1 class="title">Contact</h1>
+        </div>
       </div>
     </div>
     <script type="module" src="./buttons.js"> </script>
-    <script src="./app.js" type="module"></script>
+    <!--<script type="module" src="./app.js"></script>-->
   </body>
 </html>
