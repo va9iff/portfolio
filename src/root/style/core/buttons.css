@@ -1,16 +1,3 @@
-/** div that holds the sideButtons wrapper div **/
-.side {
-    z-index: 500;
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    top: 0;
-    flex-shrink: 0;
-    height: 100vh; 
-}
-.side > :first-child { margin-top: auto; }
-.side > :last-child { margin-bottom: auto; }
-
 .sideButtons {
     display: flex;
     position: relative;
@@ -55,3 +42,56 @@
     transition: box-shadow 313ms;
 }
 
+@media (max-aspect-ratio: 1/1) {
+    :root {
+        --btn-side: 81px;
+    }
+    .sideButtons {
+        width: unset;
+        height: unset;
+        flex-direction: row;
+        min-width: 0;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .sideBtn { 
+        height: calc(.75 * var(--btn-side)); 
+        width: var(--btn-side);
+        min-height: calc(.75 * var(--btn-side)); ;
+    }
+
+
+    /** scroller **/
+    .sideButtons::-webkit-scrollbar-thumb { border-width: 0; }
+    .sideButtons::-webkit-scrollbar { height: 7px; }
+}
+
+@media (max-aspect-ratio: 1/1) {
+    :root {
+        --btn-side: 81px;
+    }
+    .sideButtons {
+        width: unset;
+        height: unset;
+        flex-direction: row;
+        min-width: 0;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .sideBtn { 
+        height: calc(.75 * var(--btn-side)); 
+        width: var(--btn-side);
+        min-height: calc(.75 * var(--btn-side)); ;
+    }
+
+
+    /** scroller **/
+    .sideButtons::-webkit-scrollbar-thumb { border-width: 0; }
+    .sideButtons::-webkit-scrollbar { height: 7px; }
+}
+
+ .sideBtn.highlight {
+     position: absolute;
+ }

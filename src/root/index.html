@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>va9iff</title>
 
-    <!--<link rel="stylesheet" href="./style.css">-->
-    <link rel="stylesheet" href="./style/core/theme.css">
+   <!-- TODO: merge this 3 to single file since they're crucial for initial render -->
     <link rel="stylesheet" href="./style/core/core.css">
-    <link rel="stylesheet" href="./style/core/core.mobile.css">
-    <link rel="stylesheet" href="./style/core/buttons.css">
-    <link rel="stylesheet" href="./style/core/buttons.mobile.css">
-    <link rel="stylesheet" href="./style/core/cosmetics.css">
+    <!-- TODO: I don't have to put the entire profile page's css here. 
+    I can have some parts load dynamically for the initial page. 
+    so I can remove heavy style requiring things from initial loading for initial page. -->
     <link rel="stylesheet" href="./style/page/profile.css">
+
+    <link rel="stylesheet" href="./style/core/theme.css">
+
     <link rel="stylesheet" href="./style/draft.css">
-
-    <link rel="stylesheet" href="./style/core/buttons-anim.css">
-
-    <link rel="stylesheet" href="./tools/imager.css">
 
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +27,8 @@
    and then just remove everything in body and put it back to recover to this layout -->
     <div class="centered">
       <div class="side">
-        <div class="sideButtons">
+        <!-- TODO: maybe it makes sense to move sideButtons to javascript -->
+        <div class="sideButtons hidden">
           <div class="sideBtn active highlight"></div>
           <button data-btn-id="profile" class="sideBtn tab">
             <img src="./assets/card.svg" alt="About Me" title="About me">

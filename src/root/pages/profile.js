@@ -1,7 +1,9 @@
 // @ts-check
 
-import { set, tags } from "../hu.js"
+import { set, tags, linkStyle } from "../hu.js"
 const { div, h1 } = tags
+
+await linkStyle("./style/page/profile.css")
 
 export const profile = div(
     set({

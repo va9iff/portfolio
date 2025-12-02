@@ -8,7 +8,13 @@
     --bg:#1D2021;
     --btn-side: 120px;
     --btn-gap: 10px;
-    --centered-width: 700px; /*or 1200px*/
+}
+
+:root, html, body {
+    background-color: #1D2021;
+    color: #F2EDDE; /* or #FFF4D1*/
+    color-scheme: dark;
+    font-family: poppins, sans-serif;
 }
 
 /** centered on big screen scroll content **/
@@ -22,13 +28,13 @@
 
 .row, .col { display: flex; }
 .col { flex-direction: column }
-
+.hidden { display: none !important }
 
 /** scrolling content **/
 
 .content {
-    min-height: 300vh;
     position: relative;
+    min-height: 300vh;
     padding-top: 80px;
 }
 
@@ -37,4 +43,49 @@
     margin-right: 33px;
 }
 
+/** side **/
+
+/** div that holds the sideButtons wrapper div **/
+.side {
+    /** @hardcode(--btn-size) */
+    width: 120px;
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    height: 100vh; 
+}
+.side > :first-child { margin-top: auto; }
+.side > :last-child { margin-bottom: auto; }
+
+@media (max-aspect-ratio: 1/1) {
+    .centered {
+        /*overflow: hidden;*/
+        /*border: 4px solid lime;*/
+    }
+    /** other **/
+    .g, .content p {
+        margin-left: 19px;
+        margin-right: 19px;
+    }
+    .side {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        top: unset;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 7px;
+        padding-top: 0px;
+        padding-bottom: 5px;
+        box-shadow: 0 -13px 13px #1d2021;
+        background-color: var(--bg);
+    }
+    .side > :first-child { margin-left: auto; }
+    .side > :last-child { margin-bottom: unset; margin-right: auto; }
+}
 

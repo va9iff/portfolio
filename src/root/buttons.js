@@ -2,7 +2,7 @@
 
 // TODO take the initial page and cache it
 
-import { tags } from "./hu.js"
+import { tags, linkStyle } from "./hu.js"
 
 // TODO(content) import them all from an initial script which exports those
 const content = /** @type { HTMLDivElement } */ (document.querySelector(".content"))
@@ -58,7 +58,6 @@ let currentActiveIndex = 0
 /** @type {NodeListOf<HTMLButtonElement>} */
 const buttons = document.querySelectorAll(".sideBtn.tab")
 
-        console.log('aj')
 buttons.forEach((btn, i) => {
     setTimeout(() => console.log(btn), 800)
     btn.addEventListener("click", _e => {
@@ -90,3 +89,11 @@ buttons.forEach((btn, i) => {
     }
 })
 
+// TODO: move it to top of the script
+await linkStyle("./style/core/buttons.css")
+// and show buttons when as soon as possible.
+sideButtons.classList.remove("hidden")
+
+// this should be after cuz order of link tags matters 
+// for overriding css properties
+linkStyle("./style/core/buttons-anim.css")

@@ -1,15 +1,5 @@
 /** fonts **/
 
-:root, html, body {
-    background-color: #1D2021;
-    color: #F2EDDE; /* or #FFF4D1*/
-    color-scheme: dark;
-}
-
-body {
-    font-family: poppins;
-}
-
 .f1	{ font-size: 64px }
 .f2	{ font-size: 32px }
 .f3	{ font-size: 24px }
@@ -80,3 +70,19 @@ a.hoverpop:hover {
 a.text::selection {
     background-color: #83A598;
 }
+
+/* TODO: apply this for h1, h2, h3, h4 , h5, h6 tags as well*/
+.title {
+    text-align: center;
+    font-weight: 400;
+    font-size: 64px;
+    color: #8EC07C;
+    margin-bottom: 44px;
+    cursor: default;
+}
+
+.title::selection {
+    background-color: #8EC07C;
+    color: #1D2021;
+}
+
