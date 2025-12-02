@@ -4,26 +4,36 @@
 
 import { tags } from "./hu.js"
 
+// TODO(content) import them all from an initial script which exports those
+const content = /** @type { HTMLDivElement } */ (document.querySelector(".content"))
+
 const classes = ['a0', 'a1', 'a2', 'a3',]
 const sideButtons = /** @type { HTMLDivElement } */ (document.querySelector(".sideButtons"))
 
-const table = {
-    profile: async () => (await import("./pages/profile.js")).profile,
+var currentPage = /** @type { HTMLDivElement } */ (document.querySelector(".initialPage"))
+let activeId = /** @type { string } */ (currentPage.getAttribute("data-page-id"))
+/** @type {{ [key in keyof pageTable]?: Awaited<ReturnType<pageTable[key]>> }} */
+const cached = {}
+cached[activeId] = currentPage
+
+const pageTable = {
+    // we don't need it, we already have it cached so this function won't be fired ever.
+    // and the name for it is actually encoded in the html with the attribute - data-page-id
+    // which is then read from the button's attribute - data-btn-id
+    // profile: async () => currentPage,
     certificates: async () => (await import("./pages/certificates.js")).certificates,
     portfolio: async () => (await import("./pages/portfolio.js")).portfolio,
 }
 
-/** @type {{ [key in keyof table]?: Awaited<ReturnType<table[key]>> }} */
-const cached = {}
-
-// TODO(content) import them all from an initial script which exports those
-const content = /** @type { HTMLDivElement } */ (document.querySelector(".content"))
-
-var currentPage = /** @type { HTMLDivElement } */ (document.querySelector(".initialPage"))
-let activeId = currentPage.getAttribute("data-page-id")
-
-/** @param { keyof table } id */
+/** @param { keyof pageTable } id */
 function switchPage(id) {
+    if (id === activeId) {
+        window.scroll({
+            behavior: "smooth",
+            top: 0
+        })
+        return
+    }
     currentPage.remove()
     activeId = id // but it's just loading
     if (cached[id]) {
@@ -31,7 +41,7 @@ function switchPage(id) {
         content.appendChild(cached[id])
     } else {
         // TODO(loader)
-        table[id]().then(el => {
+        pageTable[id]().then(el => {
             // if the user hasn't changed the active one before we append
             if (id === activeId) {
                 cached[id] = el
@@ -52,7 +62,7 @@ const buttons = document.querySelectorAll(".sideBtn.tab")
 buttons.forEach((btn, i) => {
     setTimeout(() => console.log(btn), 800)
     btn.addEventListener("click", _e => {
-        const id = /** @type { keyof table } */ (btn.getAttribute("data-btn-id"))
+        const id = /** @type { keyof pageTable } */ (btn.getAttribute("data-btn-id"))
         switchPage(id)
         for (const cls of classes) sideButtons.classList.remove(cls)
         sideButtons.classList.add("a"+i)

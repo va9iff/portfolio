@@ -1,9 +1,12 @@
 // @ts-check
 
-import { tags } from "../hu.js"
+import { set, tags } from "../hu.js"
 const { div, h4 } = tags
 
 export const certificates = div(
+    set({
+        className: 'g'
+    }),
     h4('cyber'),
     h4('security'),
     h4('hyper'),
