@@ -6,11 +6,9 @@ import { tags, set, style } from "./hu.js"
 
 const { div } = tags
 
-// TODO(content)
-const c = document.querySelector(".content")
-if (!c) throw new Error("jajaka")
+import { content } from "./base.js"
 
-c.appendChild(
+content.appendChild(
     div(
         set({
             className: "g"

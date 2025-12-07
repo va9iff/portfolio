@@ -4,10 +4,10 @@
 
 import { tags, linkStyle } from "./hu.js"
 
-// TODO(content) import them all from an initial script which exports those
-const content = /** @type { HTMLDivElement } */ (document.querySelector(".content"))
+import { content } from "./base.js"
 
 const classes = ['a0', 'a1', 'a2', 'a3',]
+
 const sideButtons = /** @type { HTMLDivElement } */ (document.querySelector(".sideButtons"))
 
 var currentPage = /** @type { HTMLDivElement } */ (document.querySelector(".initialPage"))
