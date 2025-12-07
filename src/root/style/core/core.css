@@ -35,6 +35,7 @@
 
 .content {
     position: relative;
+    flex-grow: 1;
     min-height: 300vh;
     padding-top: 80px;
 }
