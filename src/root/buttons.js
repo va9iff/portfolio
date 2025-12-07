@@ -2,16 +2,68 @@
 
 // TODO take the initial page and cache it
 
-import { tags, linkStyle } from "./hu.js"
+import { tags, set, linkStyle } from "./hu.js"
+
+const { button, img } = tags
 
 import { content } from "./base.js"
 
 const classes = ['a0', 'a1', 'a2', 'a3',]
 
-const sideButtons = /** @type { HTMLDivElement } */ (document.querySelector(".sideButtons"))
+/*
+          <button data-btn-id="profile" class="sideBtn tab">
+            <img src="./assets/card.svg" alt="About Me" title="About me">
+          </button>
+          <button data-btn-id="certificates" class="sideBtn tab">
+            <img src="./assets/cert.svg" alt="Education" title="Education">
+          </button>
+          <button data-btn-id="portfolio" class="sideBtn tab">
+            <img src="./assets/portfel.svg" alt="Projects" title="Projects">
+          </button>
+*/
+
+import { sideButtons } from "./base.js"
 
 var currentPage = /** @type { HTMLDivElement } */ (document.querySelector(".initialPage"))
 let activeId = /** @type { string } */ (currentPage.getAttribute("data-page-id"))
+/** @description !!! to change it, use fixHighlightIndex function */
+let currentActiveIndex = 0
+
+const buttonElements = [
+    {
+        id: "certificates",
+        img: "cert.svg",
+        title: "Education"
+    },
+    {
+        id: "profile",
+        title: "About me",
+        img: "card.svg"
+    },
+    {
+        id: "portfolio",
+        img: "portfel.svg",
+        title: "Projects"
+    }
+].map((it, i) => { 
+    if (it.id === activeId) currentActiveIndex = i
+    return button(
+        btn => { 
+            btn.setAttribute("data-btn-id", it.id) 
+            btn.setAttribute("alt", it.title) 
+            btn.setAttribute("title", it.title) 
+        },
+        set({ className: `sideBtn tab` }),
+        img(
+            set({
+                src: `./assets/${it.img}`
+            })
+        )
+    ) 
+})
+
+for (const btn of buttonElements) sideButtons.appendChild(btn)
+
 /** @type {{ [key in keyof pageTable]?: Awaited<ReturnType<pageTable[key]>> }} */
 const cached = {}
 cached[activeId] = currentPage
@@ -53,37 +105,35 @@ function switchPage(id) {
 }
 
 
-let currentActiveIndex = 0
-
 /** @type {NodeListOf<HTMLButtonElement>} */
 const buttons = document.querySelectorAll(".sideBtn.tab")
+
+/** @param { number } i */
+const fixHighlightIndex = i => {
+    for (const cls of classes) sideButtons.classList.remove(cls)
+    sideButtons.classList.add("a"+i)
+    if (i < currentActiveIndex) {
+        sideButtons.classList.add("flyingToLeft")
+        setTimeout(() => {
+            sideButtons.classList.remove("flyingToLeft")
+        },64)
+    }
+    if (i > currentActiveIndex) {
+        sideButtons.classList.add("flyingToRight")
+        setTimeout(() => {
+            sideButtons.classList.remove("flyingToRight")
+        },64)
+    }
+    currentActiveIndex = i
+}
+fixHighlightIndex(currentActiveIndex)
 
 buttons.forEach((btn, i) => {
     setTimeout(() => console.log(btn), 800)
     btn.addEventListener("click", _e => {
         const id = /** @type { keyof pageTable } */ (btn.getAttribute("data-btn-id"))
         switchPage(id)
-        for (const cls of classes) sideButtons.classList.remove(cls)
-        sideButtons.classList.add("a"+i)
-        if (i < currentActiveIndex) {
-            sideButtons.classList.add("flyingToLeft")
-            setTimeout(() => {
-                sideButtons.classList.remove("flyingToLeft")
-            },64)
-        }
-        if (i > currentActiveIndex) {
-            sideButtons.classList.add("flyingToRight")
-            setTimeout(() => {
-                sideButtons.classList.remove("flyingToRight")
-            },64)
-
-        }
-        currentActiveIndex = i
-    //    document.querySelectorAll(".sideBtn").forEach(btn => {
-    //        btn.classList.remove("active")
-    //    })
-    //    btn.classList.add("active")
-
+        fixHighlightIndex(i)
     })
     btn.onclick = () => {
     }
