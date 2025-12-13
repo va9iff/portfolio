@@ -110,7 +110,8 @@ export function cards(arg) {
                 // its visuals looks off when you hold and move with touch but 
                 // the final goal will move just 1 so it'll be good
                 // check TODO(dumb)
-                listener(1) 
+                //listener(1) 
+                listener(container.getBoundingClientRect().right) 
             },
             touchend(e) {
                 // prevent firing touchmove when it's just a tap
