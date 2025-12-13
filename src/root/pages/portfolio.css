@@ -1,0 +1,10 @@
+@media (max-aspect-ratio: 1/1) {
+    .noSetWidthOnPortrait {
+        width: unset !important
+    }
+    .fullWidthOnMobile {
+        width: 100% !important
+    }
+}
+
+

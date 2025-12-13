@@ -147,3 +147,5 @@ sideButtons.classList.remove("hidden")
 // this should be after cuz order of link tags matters 
 // for overriding css properties
 linkStyle("./style/core/buttons-anim.css")
+
+buttonElements[2].click()
