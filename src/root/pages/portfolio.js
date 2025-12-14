@@ -3,7 +3,7 @@
 import { cards } from "../cards.js"
 import { tags, style, set, linkStyle, curry } from "../hu.js"
 
-const { div, h1, h3, span } = tags
+const { div, h1, h3, span, img, a } = tags
 
 const row = style({ display: 'flex' })
 const col = style({ display: 'flex', flexDirection: 'column' })
@@ -15,6 +15,11 @@ await linkStyle(res("./portfolio.css"))
 /** @type {{
     title: string,
     imgs?: { src: string }[],
+    shine?: boolean,
+    chipLinks?: {
+        icon: string,
+        href: string,
+    }[],
     fullwidth?: boolean,
     paragraph: string,
 }[]} */
@@ -22,6 +27,17 @@ await linkStyle(res("./portfolio.css"))
 const projects = [
     {
         title: "TEKNOFEST 2025: Istanbul",
+        chipLinks: [
+            {
+                icon: "i",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            // TODO: maybe a flex grow kinda chip that spans below the whole carousell
+        ],
         imgs: [
             {
                 src: 'assets/glitchy.png',
@@ -56,6 +72,7 @@ const projects = [
     },
     {
         title: "hiii",
+        shine: true,
 
         paragraph: `zard up Holborn Hill. As much mud in the streets as if the waters had but newly
         retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus,
@@ -81,8 +98,9 @@ export const portfolio = div(
             className: 'title'
         })
     ),
-    ...projects.map(p => 
-        div(
+    ...projects.map(p => { 
+        const { chipLinks } = p
+        return div(
             set({
                 className: "g"
             }),
@@ -91,26 +109,72 @@ export const portfolio = div(
                 borderRadius: '17px',
                 flexDirection: 'columnt',
                 padding: '23px',
-                marginTop: "14px"
+                marginTop: "14px",
+                position: 'relative',
             }),
-            par => {
-                const { imgs } = p
-                if (!imgs) return
-                const container = cards({
-                    bg: "#161818",
-                    slides: imgs,
-                    width: 400 + 'px',
-                    aspect: 800 / 600,
-                })
-                curry(container, style({
-                    float: 'left', 
-                    marginRight: '10px',
-                    marginBottom: '4px',
+            p.shine ? style({
+                border: '2px solid #ffa500aa',
+            }) : noop,
+            div(
+                set({ className: "fullWidthOnMobile" }),
+                style({
+                    display: 'flex',
                     position: 'relative',
-                }))
-                container.classList.add("fullWidthOnMobile")
-                par.appendChild(container)
-            },
+                    float: 'left', 
+                    flexDirection: "column",
+                    gap: '13px',
+                    marginBottom: '4px',
+                }),
+                par => {
+                    const { imgs } = p
+                    if (!imgs) return
+                    const container = cards({
+                        bg: "#161818",
+                        slides: imgs,
+                        width: 400 + 'px',
+                        aspect: 800 / 600,
+                    })
+                    curry(container, style({
+                        marginRight: '10px',
+                    }))
+                    container.classList.add("fullWidthOnMobile")
+                    par.appendChild(container)
+                },
+                div(
+                    style({
+                        position: 'relative',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        gap: '9px',
+                        paddingLeft: '6px',
+                    }),
+                    ...(chipLinks?.map(i => 
+                        a(
+                            set({ href: i.href }),
+                            style({
+                                position: 'relative',
+                                width: '45px',
+                                height: '45px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderRadius: "50%",
+                                border: "#b9b66d 2px solid",
+                            }),
+                            img(
+                                set({
+                                    src: `assets/icons/${i.icon}.svg`
+                                }),
+                                style({
+                                    position: 'absolute',
+                                    width: '70%',
+                                    height: '70%',
+                                }),
+                            ),
+                        )
+                    ) ?? [])
+                )
+            ),
             h3(
                 p.title,
                 style({
@@ -128,8 +192,8 @@ export const portfolio = div(
                 }),
                 p.paragraph
             )
-        ),
-    ),
+        )
+    }),
 )
 
 

@@ -5,6 +5,9 @@
     .fullWidthOnMobile {
         width: 100% !important
     }
+    .noFloatOnMobile {
+        clear: both;
+    }
 }
 
 
