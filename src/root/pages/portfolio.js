@@ -40,38 +40,42 @@ const projects = [
         ],
         imgs: [
             {
-                src: 'assets/glitchy.png',
+                src: 'assets/glitchy.min.jpeg',
             },
             {
-                src: 'assets/blurry.jpg',
+                src: 'assets/blurry.min.jpg',
             },
             {
-                src: 'assets/glitchy.png',
+                src: 'assets/glitchy.min.jpeg',
             },
             {
-                src: 'assets/glitchy.png',
+                src: 'assets/glitchy.min.jpeg',
             },
         ],
-        paragraph: `
-            As much mud in the streets as if the waters had but newly retired from the face of the
-            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
-            like an elephantine lizard up Holborn Hill. 
-            As much mud in the streets as if the waters had but newly retired from the face of the
-            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
-            like an elephantine lizard up Holborn Hill. 
-            As much mud in the streets as if the waters had but newly retired from the face of the
-            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
-            like an elephantine lizard up Holborn Hill. 
-            As much mud in the streets as if the waters had but newly retired from the face of the
-            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
-            like an elephantine lizard up Holborn Hill. 
-            As much mud in the streets as if the waters had but newly retired from the face of the
-            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
-            like an elephantine lizard up Holborn Hill. 
+        paragraph: div(
+            style({
+                marginTop: '9px'
+            }),
         `
+            As much mud in the streets as if the waters had but newly retired from the face of the
+            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
+            like an elephantine lizard up Holborn Hill. 
+            As much mud in the streets as if the waters had but newly retired from the face of the
+            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
+            like an elephantine lizard up Holborn Hill. 
+            As much mud in the streets as if the waters had but newly retired from the face of the
+            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
+            like an elephantine lizard up Holborn Hill. 
+            As much mud in the streets as if the waters had but newly retired from the face of the
+            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
+            like an elephantine lizard up Holborn Hill. 
+            As much mud in the streets as if the waters had but newly retired from the face of the
+            earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling
+            like an elephantine lizard up Holborn Hill. 
+        `)
     },
     {
-        title: "hiii",
+        title: "Pseunim - Pseudo Animations",
         shine: true,
         chipLinks: [
             {
@@ -115,7 +119,12 @@ const projects = [
                 href: "#"
             },
         ],
-        paragraph: `zard up Holborn Hill. As much mud in the streets as if the waters had but newly
+        paragraph: div(
+
+            style({
+                marginTop: '9px'
+            }),
+        `zard up Holborn Hill. As much mud in the streets as if the waters had but newly
         retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus,
         forty feet long or so, waddling like an elephantine lizard up Holborn Hill. As much mud in
         the streets as if the waters had but newly retired from the face of the earth, and it would
@@ -124,7 +133,43 @@ const projects = [
         from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet
         long or so, waddling like an elephantine lizard up Holborn Hill. As much mud in the streets
         as if the waters had but newly retired from the face of the earth, and it would not be
-        wonderful to me`
+        wonderful to me`)
+    },
+
+    {
+        title: "hiii",
+        chipLinks: [
+            {
+                icon: "i",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+        ],
+        paragraph: div(
+            style({
+                marginTop: '9px'
+            }),
+        `zard up Holborn Hill. As much mud in the streets as if the waters had but newly
+        retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus,
+        forty feet long or so, waddling like an elephantine lizard up Holborn Hill. As much mud in
+        the streets as if the waters had but newly retired from the face of the earth, and it would
+        not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine
+        lizard up Holborn Hill. As much mud in the streets as if the waters had but newly retired
+        from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet
+        long or so, waddling like an elephantine lizard up Holborn Hill. As much mud in the streets
+        as if the waters had but newly retired from the face of the earth, and it would not be
+        wonderful to me`)
 
     },
 
@@ -157,7 +202,7 @@ export const portfolio = div(
                 border: '2px solid #ffa500aa',
             }) : noop,
             div(
-                set({ className: "fullWidthOnMobile" }),
+                set({ className: "fullWidthOnMobile noselect" }),
                 style({
                     display: 'flex',
                     width: "400px",
@@ -167,7 +212,7 @@ export const portfolio = div(
                     float: 'left', 
                     flexDirection: "column",
                     gap: '13px',
-                    marginBottom: '4px',
+                    marginBottom: '5px',
                 }),
                 par => {
                     const { imgs } = p
@@ -181,29 +226,10 @@ export const portfolio = div(
                     par.appendChild(container)
                 },
                 div(
-                    style({
-                        position: 'relative',
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        maxWidth: '100%',
-                        flexDirection: 'row',
-                        gap: '9px',
-                        paddingLeft: '6px',
-                        paddingRight: "12px"
-                    }),
+                    set({ className: "chipLinksContainer" }),
                     ...(chipLinks?.map(i => 
                         a(
-                            style({
-                                position: 'relative',
-                                width: '45px',
-                                flexGrow: '1',
-                                height: '45px',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                borderRadius: "30px",
-                                border: "#b9b66d 2px solid",
-                            }),
+                            set({ href: i.href, className: "chipLink" }),
                             img(
                                 set({
                                     src: `assets/icons/${i.icon}.svg`
@@ -219,13 +245,14 @@ export const portfolio = div(
                 )
             ),
             h3(
+                set({ className: "projectTitle" }),
                 p.title,
                 style({
                     fontSize: '33px',
                     color: "#ffffff",
                     fontWeight: '600',
-                    paddingBottom: '4px',
-                    paddingTop: '6px',
+                    //paddingBottom: '1em',
+                    //paddingTop: '6px',
                     //paddingLeft: '10px',
                 })
             ),

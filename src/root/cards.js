@@ -5,6 +5,10 @@ const { div, img } = tags
 // then when they touchmove, it'll work as intended anyways.
 // I just don't want it to feel broken for clicks.
 
+// TODO(anim): when they enter the seen, cards go from right to stack
+// while each card having a slight delay, causing every single one to
+// be shown for a brief period of time, hinting that they're viewable.
+
 /** @param {{
     slides: ({ src: string })[],
     aspect: number, // image elements aspect ratio

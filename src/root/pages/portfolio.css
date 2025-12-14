@@ -10,4 +10,44 @@
     }
 }
 
+.noselect {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
 
+.chipLink {
+    position: relative;
+    width: 45px;
+    flex-grow: 1;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    border: #b9b66d 2px solid;
+
+    transition: 222ms;
+}
+.chipLink:hover {
+    background-color: #b9b66d33;
+}
+
+.chipLinksContainer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    maxWidth: 100%;
+    flex-direction: row;
+    gap: 9px;
+    padding-left: 6px;
+    padding-right: 12px;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .chipLinksContainer {
+        margin-bottom: 19px
+    }
+    .projectTitle {
+        mar
+    }
+}
