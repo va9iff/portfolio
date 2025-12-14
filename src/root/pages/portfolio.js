@@ -73,7 +73,48 @@ const projects = [
     {
         title: "hiii",
         shine: true,
-
+        chipLinks: [
+            {
+                icon: "i",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+            {
+                icon: "hyperlink",
+                href: "#"
+            },
+        ],
         paragraph: `zard up Holborn Hill. As much mud in the streets as if the waters had but newly
         retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus,
         forty feet long or so, waddling like an elephantine lizard up Holborn Hill. As much mud in
@@ -119,7 +160,10 @@ export const portfolio = div(
                 set({ className: "fullWidthOnMobile" }),
                 style({
                     display: 'flex',
+                    width: "400px",
+                    marginRight: '10px',
                     position: 'relative',
+                    minWidth: '2px',
                     float: 'left', 
                     flexDirection: "column",
                     gap: '13px',
@@ -131,34 +175,33 @@ export const portfolio = div(
                     const container = cards({
                         bg: "#161818",
                         slides: imgs,
-                        width: 400 + 'px',
+                        width: "100%",
                         aspect: 800 / 600,
                     })
-                    curry(container, style({
-                        marginRight: '10px',
-                    }))
-                    container.classList.add("fullWidthOnMobile")
                     par.appendChild(container)
                 },
                 div(
                     style({
                         position: 'relative',
                         display: 'flex',
+                        flexWrap: 'wrap',
+                        maxWidth: '100%',
                         flexDirection: 'row',
                         gap: '9px',
                         paddingLeft: '6px',
+                        paddingRight: "12px"
                     }),
                     ...(chipLinks?.map(i => 
                         a(
-                            set({ href: i.href }),
                             style({
                                 position: 'relative',
                                 width: '45px',
+                                flexGrow: '1',
                                 height: '45px',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                borderRadius: "50%",
+                                borderRadius: "30px",
                                 border: "#b9b66d 2px solid",
                             }),
                             img(
