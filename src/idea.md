@@ -1,3 +1,8 @@
+Saturated gradient border (the ones like on google ai answers in search).
+
+---------
+
+
 for cards like this
 
 ```

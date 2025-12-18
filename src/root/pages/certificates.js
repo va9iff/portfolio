@@ -1,12 +1,169 @@
 // @ts-check
 
-import { set, tags } from "../hu.js"
-const { div, h4 } = tags
+import { cards } from "../cards.js"
+import { set, tags, style } from "../hu.js"
+const { div, h4, h1, span, h3, a, img, p, b } = tags
+const noop = () => {}
+
+const res = import.meta.resolve
 
 export const certificates = div(
-    set({
-        className: 'g'
-    }),
+    h1("Education", 
+        set({
+            className: 'title'
+        })
+    ),    
+
+    div(
+        set({
+            className: "g"
+        }),
+        style({
+            flexDirection: 'column',
+            padding: '23px',
+            position: 'relative',
+        }),
+        div(
+            set({ className: "fullWidthOnMobile noselect" }),
+            style({
+                display: 'flex',
+                width: "400px",
+                marginRight: '10px',
+                position: 'relative',
+                minWidth: '2px',
+                float: 'left', 
+                flexDirection: "column",
+                gap: '13px',
+                marginBottom: '5px',
+            }),
+            par => {
+                const container = cards({
+                    bg: "#161818",
+                    slides: [ 
+                        { src: res("../assets/glitchy.min.jpeg" ) } ,
+                        { src: res("../assets/blurry.min.jpg" ) } ,
+                    ],
+                    width: "100%",
+                    aspect: 600 / 500,
+                })
+                par.appendChild(container)
+            },
+            div( set({ className: "chipLinksContainer" }),),
+        ),
+        div(
+            style({ width: '600px' }),
+        cards({
+            bg: "#161818",
+            slides: [ 
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+            ],
+            width: "100%",
+            aspect: 600 / 500,
+        }),
+        cards({
+            bg: "#161818",
+            slides: [ 
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+            ],
+            width: "100%",
+            aspect: 600 / 500,
+        }),
+        cards({
+            bg: "#161818",
+            slides: [ 
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+            ],
+            width: "100%",
+            aspect: 600 / 500,
+        }),
+        cards({
+            bg: "#161818",
+            slides: [ 
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+            ],
+            width: "100%",
+            aspect: 600 / 500,
+        }),
+        cards({
+            bg: "#161818",
+            slides: [ 
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/glitchy.min.jpeg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+                { src: res("../assets/blurry.min.jpg" ) } ,
+            ],
+            width: "100%",
+            aspect: 600 / 500,
+        }),
+
+        ),
+        h3(
+            set({ className: "projectTitle" }),
+            h1("UNEC"),
+            style({
+                fontSize: '33px',
+                color: "#ffffff",
+                fontWeight: '600',
+            })
+        ),
+        span(
+            style({
+                fontSize: '16px'
+            }),
+            div(
+                div(
+                    style({
+                        fontSize: "23px"
+                    }),
+                    b("Bachelor's"), " ",
+                    "in Information Security"
+                ),
+            )
+        )
+    ),
+
+                    //b("Master's"), 
+                    //" in Information Security"
+
     h4('cyber'),
     h4('security'),
     h4('hyper'),

@@ -193,7 +193,7 @@ export const portfolio = div(
             style({
                 background: '#161818',
                 borderRadius: '17px',
-                flexDirection: 'columnt',
+                flexDirection: 'columnt', // lol fix it TODO
                 padding: '23px',
                 marginTop: "14px",
                 position: 'relative',

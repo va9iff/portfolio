@@ -19,6 +19,9 @@ export function cards(arg) {
     const { slides } = arg
     const { length } = slides
 
+    // TODO: it's not predictable. there's slight shift.
+    // when slide count increase, it starts to get on top of the other cards.
+    // but when there's few, they have gaps.
     const extendedPercent = 6.4
     const stackPercent = 20
 
@@ -63,7 +66,7 @@ export function cards(arg) {
                     transition: '800ms cubic-bezier(.33, 1, 0, 1)',
                     objectFit: 'cover',
                     top: '0',
-                    left: `${i * (stackPercent / (length-1))}%`,
+                    left: `${i * (stackPercent / (length))}%`,
                     width: `${slideWidthPercent}%`,
                     height: `${slideWidthPercent}%`,
                     boxShadow: i > 0 ? `-13px 0 12px #1119` : "",
@@ -87,7 +90,7 @@ export function cards(arg) {
         last = activeId
         for (let i = 0; i < images.length; i++) {
             const image = images[i]
-            if (i > activeId) image.style.translate = `${100 - extendedPercent}% 0`
+            if (i > activeId) image.style.translate = `${100 + (stackPercent + extendedPercent) / slideWidthPercent }% 0`
             else image.style.translate = '0% 0'
         }
 
