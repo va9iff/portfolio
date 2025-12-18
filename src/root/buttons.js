@@ -148,4 +148,4 @@ sideButtons.classList.remove("hidden")
 // for overriding css properties
 linkStyle("./style/core/buttons-anim.css")
 
-buttonElements[2].click()
+//buttonElements[2].click()

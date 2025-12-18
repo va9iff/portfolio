@@ -65,3 +65,98 @@
     scale: .97;
 }
 
+.contacts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+@media (max-aspect-ratio: 1/1) {
+    /** TODO: !!! */
+    .contacts {
+        gap: 16px;
+    }
+    .contactChip {
+        width: 100%;
+        padding: 10px 15px !important;
+        box-shadow: 0 0 0 1px inset var(--contact-accent) !important;
+    }
+    .contactChip img {
+        height: 32px !important;
+    }
+    .contactChip .contactText {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-grow: 1;
+        justify-content: space-between;
+    }
+    .contactChip .contactText .contactPlatform {
+        font-size: 19px !important;
+    }
+}
+
+.contactChip {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 0 3px inset var(--contact-accent);
+    padding: 15px 20px ;
+    min-width: 224px;
+    border-radius: 32px;
+    transition: 140ms
+}
+
+.contactChip img {
+    height: 49px;
+    transition: 140ms
+}
+
+.contactChip {
+    --contact-accent: #ADDFAA;
+    position: relative;
+    text-decoration: none;
+    color: #eeeeee;
+}
+
+.contactChip {
+    content: "";
+    border-radius: 36px;
+    transition: 120ms background-color, 0ms ease-out box-shadow;
+}
+
+.contactText {
+    padding-left: 13px;
+}
+.contactChip .contactText .contactPlatform {
+    font-size: 23px;
+}
+.contactChip .contactText .contactUsername {
+    font-size: 15px;
+    line-height: 1;
+}
+.contactChip *::selection {
+    background-color: var(--contact-accent)  ;
+}
+.contactChip img {
+    -webkit-user-select: none;
+}
+
+.contactChip::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--contact-accent);
+    opacity: 0;
+    transition: 320ms;
+}
+.contactChip:hover::before {
+    transition: 120ms;
+    opacity: .2;
+    /*filter: saturate(3);*/
+}

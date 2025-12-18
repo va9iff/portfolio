@@ -36,8 +36,15 @@
 .content {
     position: relative;
     flex-grow: 1;
-    min-height: 300vh;
+    /*min-height: 300vh;*/
+    min-height: 100vh;
+    padding-bottom: 20vh;
     padding-top: 80px;
+}
+
+body {
+    /* to prevent no scroll pages to move the page left */
+    overflow-y: scroll
 }
 
 .g, .content p {
