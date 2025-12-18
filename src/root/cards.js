@@ -77,9 +77,6 @@ export function cards(arg) {
             )
         )
 
-    /** TODO crop with fade on right most */
-    const fadeBlur = 10
-
     let last = -1
 
     /** @param {number} x */
