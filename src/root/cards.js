@@ -1,3 +1,5 @@
+// @ts-check
+
 import { tags, set, on, style } from "./hu.js"
 const { div, img } = tags
 
@@ -98,8 +100,8 @@ export function cards(arg) {
 
     const container = div(
         style({
-            width: arg.width,
-            position: 'relative',
+                width: arg.width,
+                position: 'relative',
             overflow: 'hidden',
             borderRadius: `4%`,
             // new ratio which will hold stacked img elements.
@@ -107,6 +109,19 @@ export function cards(arg) {
             aspectRatio: yk/xk+'',
             //border: '2px solid red',
         }),
+        div(
+            // BUG: sub-pixel rendering causes images below to be visible in 1px width :(
+            style({
+                position: 'absolute',
+                top: "0",
+                right: "0",
+                width: `${extendedPercent/2}%`,
+                pointerEvents: "none",
+                zIndex: '199',
+                height: '100%',
+                background: `linear-gradient(to left, ${arg.bg}, transparent)`,
+            })
+        ),
         on({
             mousemove(e) {
                 const x = e.clientX
