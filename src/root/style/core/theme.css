@@ -76,7 +76,7 @@ a.text::selection {
     text-align: center;
     font-weight: 400;
     font-size: 64px;
-    color: #8EC07C;
+    color: #8EC07C; /* title green */
     margin-bottom: 44px;
     cursor: default;
 }
