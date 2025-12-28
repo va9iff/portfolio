@@ -197,6 +197,7 @@ export const portfolio = div(
                 padding: '23px',
                 marginTop: "14px",
                 position: 'relative',
+                display: 'flow-root'
             }),
             p.shine ? style({
                 border: '2px solid #ffa500aa',
