@@ -28,7 +28,7 @@ export const certificates = div(
             cards({
                 bg: "var(--bg)",
                 slides: [ 
-                    { src: res("../assets/bgg.png" ) } ,
+                    { src: res("../assets/images/adnsu-corner-top.jpg" ) } ,
                     { src: res("../assets/images/asoiu.min.jpeg" ) } ,
                 ],
                 width: "100%",
