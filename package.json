@@ -1,11 +1,16 @@
 {
   "name": "groovy",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "va9iff",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "esbuild": "^0.27.2",
+    "glob": "^13.0.0"
+  }
 }

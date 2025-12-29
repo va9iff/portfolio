@@ -1,3 +1,5 @@
+- [firefox single row](https://github.com/va9iff/firefox-single-row-layout)
+
 mobile: bottom padding of scrolling body with the same size of the height of the bottom menu row
 calc(menuItemWidth * menuHeightRatio)
 

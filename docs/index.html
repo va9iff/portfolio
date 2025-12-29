@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>va9iff</title>
+
+   <!-- TODO: merge this 3 to single file since they're crucial for initial render -->
+    <link rel="stylesheet" href="./style/core/core.css">
+    <!-- TODO: I don't have to put the entire profile page's css here. 
+    I can have some parts load dynamically for the initial page. 
+    so I can remove heavy style requiring things from initial loading for initial page. -->
+    <link rel="stylesheet" href="./style/page/profile.css">
+
+    <link rel="stylesheet" href="./style/core/theme.css">
+
+    <link rel="stylesheet" href="./style/draft.css">
+
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--/fonts-->
+
+  </head>
+  <body>
+   <!-- we can replace this whole element to have something that is fullscreen if we wanted
+   and then just remove everything in body and put it back to recover to this layout -->
+    <div class="centered">
+      <div class="side">
+        <!-- TODO: maybe it makes sense to move sideButtons to javascript -->
+        <div class="sideButtons hidden">
+          <div class="sideBtn active highlight"></div>
+        </div>
+      </div>
+      <div class="content">
+        <div data-page-id="profile" class="initialPage">
+          <h1 class="title">Profile</h1>
+          <p>
+            Proficient in web technologies. Cyber-Security specialist. Open
+            source contributor. Loves turning unique ideas into reality.
+          </p>
+          <div class="g mynamecard">
+            <img id="pic" src="./assets/blurry.min.jpg" width="284" height="284" alt="Me" title="Me">
+            <div class="col tituls f4">
+              <span class="myname">Vaqif VALIYEV</span>
+              <span class="titul">Recreational Programmer</span>
+              <span class="titul">Security Researcher</span>
+              <span class="titul">Software Designer</span>
+              <!--<span class="titul">Open Source Contributor</span>-->
+            </div>
+          </div>
+          <!--<h1 class="title">Contact</h1>-->
+          <div class="contacts g">
+            <a href="#" class="contactChip">
+              <img src="./assets/logos/github.svg" alt="">
+              <div class="contactText">
+                <div class="contactPlatform">Github</div>
+                <div class="contactUsername">@va9iff</div>
+              </div>
+            </a>
+            <a href="#" class="contactChip" style="--contact-accent: #DFAACF;">
+              <img src="./assets/logos/instagram.svg" alt="">
+              <div class="contactText">
+                <div class="contactPlatform">Instagram</div>
+                <div class="contactUsername">@va9iff</div>
+              </div>
+            </a>
+            <a href="#" class="contactChip" style="--contact-accent: #8abcf1;">
+              <img src="./assets/logos/linkedin-exclude.svg" alt="">
+              <div class="contactText">
+                <div class="contactPlatform">Linkedin</div>
+                <div class="contactUsername">@va9iff</div>
+              </div>
+            </a>
+            <a href="#" class="contactChip" style="--contact-accent: #8187db;">
+              <img src="./assets/logos/discord-black-icon.svg" alt="">
+              <div class="contactText">
+                <div class="contactPlatform">Discord</div>
+                <div class="contactUsername">@va9iff</div>
+              </div>
+            </a>
+          </div>
+      </div>
+    </div>
+    <script type="module" src="./buttons.js"> </script>
+    <!--<script type="module" src="./app.js"></script>-->
+  </body>
+</html>

@@ -1,0 +1,1 @@
+import{set as l,tags as o,linkStyle as s}from"../hu.js";const{div:t,h1:e}=o;await s("./style/page/profile.css");const i=t(l({className:"g"}),e("wuzzup beijing"),"hola",e("lola"));export{i as profile};

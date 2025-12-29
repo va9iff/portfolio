@@ -37,7 +37,7 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    maxWidth: 100%;
+    max-width: 100%;
     flex-direction: row;
     gap: 9px;
     padding-left: 6px;
