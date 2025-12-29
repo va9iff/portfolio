@@ -1,3 +1,4 @@
+/* TODO(cores1): move it to a styleshee where you load anyways */
 @media (max-aspect-ratio: 1/1) {
     .noSetWidthOnPortrait {
         width: unset !important
@@ -48,6 +49,6 @@
         margin-bottom: 19px
     }
     .projectTitle {
-        mar
+        /*mar*/
     }
 }

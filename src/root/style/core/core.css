@@ -69,6 +69,14 @@ body {
 .side > :first-child { margin-top: auto; }
 .side > :last-child { margin-bottom: auto; }
 
+@media (max-width: 900px) {
+  .g {
+    margin-left: 4px;
+    margin-right: 3px;
+  }
+}
+
+
 @media (max-aspect-ratio: 1/1) {
     .centered {
         /*overflow: hidden;*/

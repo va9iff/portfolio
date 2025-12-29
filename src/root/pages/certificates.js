@@ -1,7 +1,7 @@
 // @ts-check
 
 import { cards } from "../cards.js"
-import { set, tags, style, curry } from "../hu.js"
+import { set, linkStyle, tags, style, curry } from "../hu.js"
 const { div, h4, h1, span, h3, a, img, p, b } = tags
 const noop = () => {}
 
@@ -11,6 +11,8 @@ const marbo = style({
     marginBottom: "9px",
 })
 
+linkStyle(res("./certificates.css"))
+
 export const certificates = div(
     h1("Education", 
         set({
@@ -18,26 +20,18 @@ export const certificates = div(
         })
     ),
 
+  // ADNSU
     div(
         set({ className: "g edu-entry" }),
-        style({
-            display: 'flex',
-            gap: '15px',
-            flexDirection: 'row',
-            padding: '23px',
-            position: 'relative',
-        }),
         div(
-            style({
-                //flex: '5'
-            }),
+            set({ className: "edu-cards-container" }),
             cards({
                 bg: "var(--bg)",
                 slides: [ 
                     { src: res("../assets/bgg.png" ) } ,
                     { src: res("../assets/images/asoiu.min.jpeg" ) } ,
                 ],
-                width: "444px",
+                width: "100%",
                 aspect: 600 / 500,
             }),
         ),
@@ -67,7 +61,6 @@ export const certificates = div(
             div(
                 style({
                     fontSize: '16px',
-                    //flex: "3"
                 }),
                 div(
                     div(
@@ -90,26 +83,18 @@ export const certificates = div(
         )
     ),
 
+  // UNEC
     div(
         set({ className: "g edu-entry" }),
-        style({
-            display: 'flex',
-            gap: '15px',
-            flexDirection: 'row',
-            padding: '23px',
-            position: 'relative',
-        }),
         div(
-            style({
-                //flex: '5'
-            }),
+            set({ className: "edu-cards-container" }),
             cards({
                 bg: "var(--bg)",
                 slides: [ 
                     { src: res("../assets/images/unec-kids-lib-lay.min.jpeg" ) } ,
                     { src: res("../assets/images/unec-cube.min.jpeg" ) } ,
                 ],
-                width: "444px",
+                width: "100%",
                 aspect: 600 / 500,
             }),
         ),
@@ -139,7 +124,6 @@ export const certificates = div(
             div(
                 style({
                     fontSize: '16px',
-                    //flex: "3"
                 }),
                 div(
                     div(

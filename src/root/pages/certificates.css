@@ -1,0 +1,35 @@
+/* TODO(cores1): move it to a styleshee where you load anyways */
+@media (max-aspect-ratio: 1/1) {
+    .noSetWidthOnPortrait {
+        width: unset !important
+    }
+    .fullWidthOnMobile {
+        width: 100% !important
+    }
+    .noFloatOnMobile {
+        clear: both;
+    }
+}
+
+.edu-entry {
+  display: flex;
+  min-width: 0;
+  gap: 15px;
+  flex-direction: row;
+  padding: 23px;
+  position: relative;
+}
+
+.edu-cards-container {
+  width: 444px;
+  flex-shrink: 0;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .edu-cards-container {
+    width: 100%;
+  }
+  .edu-entry {
+    flex-direction: column;
+  }
+}
