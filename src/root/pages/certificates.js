@@ -91,7 +91,7 @@ export const certificates = div(
             cards({
                 bg: "var(--bg)",
                 slides: [ 
-                    { src: res("../assets/images/unec-kids-lib-lay.min.jpeg" ) } ,
+                    //{ src: res("../assets/images/unec-kids-lib-lay.min.jpeg" ) } ,
                     { src: res("../assets/images/unec-cube.min.jpeg" ) } ,
                 ],
                 width: "100%",
